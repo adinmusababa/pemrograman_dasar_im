@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pasien</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<main class="page">
+
+    <header class="page-head">
+        <h1>Dashboard Pasien</h1>
+        <p>Identitas, tanda vital, dan riwayat pasien yang sedang dipantau.</p>
+    </header>
+
+    <!-- Identitas pasien -->
+    <section class="card patient-card">
+        <div class="patient-info">
+            <div class="info-item"><span class="label">Nama pasien</span><span class="value">Bpk. Budi Santoso</span></div>
+            <div class="info-item"><span class="label">No. rekam medis</span><span class="value">RM-2026-0892</span></div>
+            <div class="info-item"><span class="label">Usia / gender</span><span class="value">45 tahun / Laki-laki</span></div>
+            <div class="info-item"><span class="label">Ruang rawat</span><span class="value">ICU Bed 04</span></div>
+        </div>
+        <div class="patient-status">● Kondisi stabil</div>
+    </section>
+
+    <!-- Kartu indikator vital, masing-masing dengan ikon medis -->
+    <section class="dashboard-grid" aria-label="Indikator vital">
+
+        <article class="card vital-card">
+            <div class="vital-head">
+                <h2>Detak jantung</h2>
+                <div class="medical-icon ic-heart">
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Ikon jantung">
+                        <path d="M12 20.5S3.5 15.6 3.5 9.3A4.8 4.8 0 0 1 12 6.6a4.8 4.8 0 0 1 8.5 2.7c0 6.3-8.5 11.2-8.5 11.2z"/>
+                        <path d="M6.5 12h3l1.5-3 2 6 1.5-3h3"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="vital-value">78 <span class="vital-unit">bpm</span></div>
+            <div class="vital-note">Normal (60–100)</div>
+        </article>
+
+        <article class="card vital-card">
+            <div class="vital-head">
+                <h2>Suhu tubuh</h2>
+                <div class="medical-icon ic-temp">
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Ikon termometer">
+                        <path d="M10 14.2V5a2 2 0 0 1 4 0v9.2a4.2 4.2 0 1 1-4 0z"/>
+                        <path d="M12 9v8"/>
+                        <circle cx="12" cy="17" r="1.3"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="vital-value">36,5 <span class="vital-unit">°C</span></div>
+            <div class="vital-note">Normal (36,1–37,2)</div>
+        </article>
+
+        <article class="card vital-card">
+            <div class="vital-head">
+                <h2>Tekanan darah</h2>
+                <div class="medical-icon ic-bp">
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Ikon tensimeter">
+                        <circle cx="10" cy="10" r="6.5"/>
+                        <path d="M10 10l3-3.2"/>
+                        <path d="M10 5v1.2M5 10h1.2M14.8 10H14"/>
+                        <path d="M14.5 14.5c3 .5 5 2 5 4.5"/>
+                        <circle cx="19.5" cy="19.5" r="1.8"/>
+                        <path d="M6 18.2h4"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="vital-value">120/80 <span class="vital-unit">mmHg</span></div>
+            <div class="vital-note">Optimal</div>
+        </article>
+
+        <article class="card vital-card">
+            <div class="vital-head">
+                <h2>Saturasi oksigen (SpO2)</h2>
+                <div class="medical-icon ic-oxygen">
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Ikon oksigen">
+                        <path d="M12 2.8s6.7 6.8 6.7 11.6a6.7 6.7 0 0 1-13.4 0C5.3 9.6 12 2.8 12 2.8z"/>
+                        <circle cx="9.7" cy="14.3" r="2"/>
+                        <path d="M13 12.8h3.2l-3.2 3.4h3.4"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="vital-value">98 <span class="vital-unit">%</span></div>
+            <div class="vital-note">Normal (95–100%)</div>
+        </article>
+
+        <article class="card vital-card">
+            <div class="vital-head">
+                <h2>Laju pernapasan</h2>
+                <div class="medical-icon ic-breath">
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Ikon paru-paru">
+                        <path d="M12 4v8"/>
+                        <path d="M12 8c-1.5-1-3.5-1-4.8 1.2C5.6 12 4 15.5 4 18.2c0 1.2 1 2 2.2 1.8 2-.3 3.8-1.5 4.6-3.4.3-.8.2-1.8.2-3.6"/>
+                        <path d="M12 8c1.5-1 3.5-1 4.8 1.2C18.4 12 20 15.5 20 18.2c0 1.2-1 2-2.2 1.8-2-.3-3.8-1.5-4.6-3.4-.3-.8-.2-1.8-.2-3.6"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="vital-value">18 <span class="vital-unit">x/menit</span></div>
+            <div class="vital-note">Normal (12–20)</div>
+        </article>
+
+        <article class="card vital-card">
+            <div class="vital-head">
+                <h2>Status kesadaran</h2>
+                <div class="medical-icon ic-eye">
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Ikon mata">
+                        <path d="M2 12s3.7-6.5 10-6.5S22 12 22 12s-3.7 6.5-10 6.5S2 12 2 12z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="vital-value">15 <span class="vital-unit">GCS E4V5M6</span></div>
+            <div class="vital-note">Compos mentis (sadar penuh)</div>
+        </article>
+
+    </section>
+
+    <!-- Tren detak jantung -->
+    <section class="card chart-card">
+        <h2>Tren detak jantung (24 jam terakhir)</h2>
+        <div class="bar-chart" role="img" aria-label="Grafik batang detak jantung per tiga jam">
+            <div class="bar" style="height: 60%;" data-bpm="72" data-jam="00.00"></div>
+            <div class="bar" style="height: 55%;" data-bpm="68" data-jam="03.00"></div>
+            <div class="bar" style="height: 50%;" data-bpm="65" data-jam="06.00"></div>
+            <div class="bar" style="height: 75%;" data-bpm="85" data-jam="09.00"></div>
+            <div class="bar" style="height: 70%;" data-bpm="80" data-jam="12.00"></div>
+            <div class="bar" style="height: 68%;" data-bpm="78" data-jam="15.00"></div>
+            <div class="bar" style="height: 80%;" data-bpm="88" data-jam="18.00"></div>
+            <div class="bar" style="height: 65%;" data-bpm="75" data-jam="21.00"></div>
+        </div>
+    </section>
+
+    <!-- Riwayat pasien -->
+    <section class="card table-card">
+        <div class="table-head">
+            <h2>Riwayat pasien</h2>
+            <p>Pendaftaran, pemeriksaan, dan anamnesa yang telah dibuat.</p>
+        </div>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Kegiatan</th>
+                        <th>Poli / ruang</th>
+                        <th>Dokter</th>
+                        <th>Catatan</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>02 Nov 2026</td>
+                        <td>Pemantauan ICU</td>
+                        <td>ICU Bed 04</td>
+                        <td>Dr. Smith</td>
+                        <td>Tanda vital stabil</td>
+                        <td><span class="badge dirawat">Dirawat</span></td>
+                    </tr>
+                    <tr>
+                        <td>30 Okt 2026</td>
+                        <td>Anamnesa</td>
+                        <td>IGD</td>
+                        <td>Dr. Johnson</td>
+                        <td>Keluhan nyeri dada ringan</td>
+                        <td><span class="badge selesai">Selesai</span></td>
+                    </tr>
+                    <tr>
+                        <td>30 Okt 2026</td>
+                        <td>Pendaftaran pasien baru</td>
+                        <td>Loket pendaftaran</td>
+                        <td>–</td>
+                        <td>RM-2026-0892 dibuat</td>
+                        <td><span class="badge selesai">Selesai</span></td>
+                    </tr>
+                    <tr>
+                        <td>06 Nov 2026</td>
+                        <td>Jadwal pemeriksaan</td>
+                        <td>Poli Umum</td>
+                        <td>Dr. Williams</td>
+                        <td>Kontrol lanjutan</td>
+                        <td><span class="badge terjadwal">Terjadwal</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>

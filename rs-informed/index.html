@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Rumah Sakit Informed UTY</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="shell">
+
+    <input type="checkbox" id="toggle-sidebar" class="toggle-input" aria-label="Tutup atau buka menu">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <!-- kasih logo gambar RS di sini -->
+            <img src="asset/logouty.png" alt="Logo RS Informed UTY">
+            <div>
+                <strong>RS Informed UTY</strong>
+                <small>Sistem Integrasi Kesehatan</small>
+            </div>
+        </div>
+
+        <nav class="menu" aria-label="Menu utama">
+            <a href="pages/beranda.html" target="konten">Beranda &amp; Profil RS</a>
+            <a href="pages/dashboard.html" target="konten">Dashboard Pasien</a>
+
+            <div class="menu-group">Pendaftaran</div>
+            <a class="sub" href="pages/pendaftaran.html#identitas" target="konten">Data Identitas</a>
+            <a class="sub" href="pages/pendaftaran.html#kontak" target="konten">Data Kontak</a>
+            <a class="sub" href="pages/pendaftaran.html#medis" target="konten">Data Medis</a>
+
+            <div class="menu-group">Layanan</div>
+            <a class="sub" href="pages/jadwal.html" target="konten">Jadwal Pemeriksaan</a>
+            <a class="sub" href="pages/anamnesa.html" target="konten">Form Anamnesa</a>
+        </nav>
+
+        <div class="sidebar-foot">&copy; 2026 InformedUTY</div>
+    </aside>
+
+    <div class="shell-main">
+        <header class="topbar">
+            <label for="toggle-sidebar" class="toggle-btn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                Menu
+            </label>
+            <span class="title">Sistem Integrasi Kesehatan</span>
+        </header>
+
+        <iframe class="content-frame" name="konten" src="pages/beranda.html" title="Konten halaman"></iframe>
+    </div>
+
+</body>
+</html>

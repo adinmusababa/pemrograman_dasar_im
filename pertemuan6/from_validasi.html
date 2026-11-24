@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .container{
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(red, green, blue, alpha);
+        }
+
+        h1{
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #1abc9c;
+            display: inline-block;
+            width: 100%;
+        }
+
+        fieldset{
+            border: 1px solid #bdc3c7;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            padding: 20px;
+        }
+
+        legend{
+            font-weight: bold;
+            color: #1abc9c;
+            font-size: 1.1em;
+            padding: 0 10px;
+        }
+
+        label{
+            display: block;
+            margin-top: 12px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input, select, textarea{
+            width: 100px;
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid #bdc3c7;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input:invalid, select:invalid, textarea:increment{
+            border-color: #e74c3c;
+            background-color: #fff5f5;
+        }
+
+        input:valid, select:valid, textarea:valid{
+            border-color: #2ecc71;
+            background-color: #f0fff4;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>Form Anamnesa Pasien</h1>
+<p style="text-align: center; color: #7f8c8d;"> Klinik Pratama Sehat</p>
+
+<form action="#" method="post">
+    <fieldset>
+        <legend>Data Pribadi Pasien</legend>
+
+        <!-- Nama Lengkap -->
+        <label class="required-star">Nama Lengkap</label>
+        <input type="text" name="nama" required>
+
+        <!-- Nomor Rekaman Medis -->
+        <label class="required-star">Nomor Rekaman Medis</label>
+        <input type="text" name="nomor-rekaman" pattern="RM[0-9]{8}" title="Format: RM diikuti 8 digit angka RM12345678" required>
+        <div class="hint">Format: RM + 8 Digit angka (contoh: RM12345678)</div>
+        <!-- Tanggal Lahir -->
+        <label class="required-star"> Tanggal Lahir</label>
+        <input type="date" name="tanggal_lahir">
+
+        <!-- Jenis Kelamin -->
+        <label class="required-star"> Jenis Kelamin</label>
+        <div>
+            <input type="radio" id="laki-laki" name="jenis_kelalin" value="L" required>
+            <label for="laki-laki">Laki-laki</label>
+            <input type="radio" id="pr" name="jenis_kelamin" value="P" required>
+            <label for="pr">Prempuan</label>
+
+
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Pemeriksaan Fisik</legend>
+
+        <label class="required-star"> Suhu Tubuh (C)</label>
+        <input type="number" name="suhu" min="35" max="50" step="0.1" required>
+        <div class="hit">Rentang Normal Suhu: 35.0 sampai 37.5</div>
+
+        <label class="required-star">Tekanan Darah</label>
+        <div style="display: flex;gap: 10px;">
+            <input type="number" name="tekanan" min="80" max="200" placeholder="Sistolik" style="width: 48%;">
+            <input type="number" name="diastolik" min="50" max="130" placeholder="Diastolik" style="width: 48%;">
+        </div>
+
+        <label class="required-star">Nadi (kali/menit)</label>
+        <input type="number" name="nadi" min="40" max="180">
+
+        <label class="required-star">Respirasi</label>
+        <input type="number" name="respirasi" min="12" max="30">
+    </fieldset>
+
+    <fieldset>
+        <legend>Riwayat dan Keluhan</legend>
+
+        <label>Riwayat Penyakit yang diderita</label>
+        <div>
+            <input type="checkbox" id="db" name="riwayat" value="diabetes">
+            <label for="db">Diabetes</label>
+
+            <input type="checkbox" id="hp" name="riwayat" value="hipertensi">
+            <label for="hp">Hipertensi</label>
+            
+            <input type="checkbox" id="jt" name="riwayat" value="jantung">
+            <label for="jt">Jantung</label>
+
+            <input type="checkbox" id="as" name="riwayat" value="asma">
+            <label for="as">Asma</label>
+        </div>
+
+        <label class="required-star">Keluhan Utama</label>
+        <textarea name="keluhan" rows="5" placeholder="Ceritakan Keluhan Pasien di sini" required></textarea>
+
+        <label>Riwayat Alergi</label>
+        <input type="text" name="alergi" placeholder="Contoh:Obat, Minumal, dll">
+    </fieldset>
+
+    <div style="text-align: center;">
+        <button type="submit"> Simpan Data Pasien</button>
+        <button type="reset"> Reset Format</button>
+    </div>
+</form>
+</div>
+</body>
+</html>

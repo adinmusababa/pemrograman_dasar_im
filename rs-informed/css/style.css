@@ -1,0 +1,354 @@
+/* ==========================================================
+   Sistem Informasi RS Informed UTY — satu file CSS untuk semua halaman
+   Daftar isi:
+   1. Token warna & dasar     5. Kartu & grid umum
+   2. Shell (index.html)      6. Indikator vital + ikon medis
+   3. Halaman konten          7. Tabel riwayat & badge
+   4. Beranda / profil RS     8. Formulir (pendaftaran, jadwal, anamnesa)
+   ========================================================== */
+
+/* 1. TOKEN WARNA & DASAR ------------------------------------ */
+:root {
+  --blue-900: #0c3b5c;
+  --blue-700: #0369a1;
+  --blue-500: #0284c7;
+  --blue-100: #e0f2fe;
+  --blue-50:  #f0f9ff;
+  --teal-700: #0f766e;
+  --teal-500: #14b8a6;
+  --green-600: #16a34a;
+  --green-100: #dcfce7;
+  --green-50:  #f0fdf4;
+  --white: #ffffff;
+  --ink: #1e293b;
+  --ink-soft: #64748b;
+  --line: #dbe7ef;
+  --danger: #dc2626;
+  --warn-bg: #fef3c7;
+  --warn-ink: #92400e;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(12, 59, 92, .08), 0 4px 12px rgba(12, 59, 92, .05);
+  --sidebar-w: 250px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.55;
+  background: var(--blue-50);
+}
+
+a { color: var(--blue-700); }
+h1, h2, h3 { line-height: 1.25; margin: 0; }
+:focus-visible { outline: 3px solid var(--teal-500); outline-offset: 2px; }
+
+/* 2. SHELL (index.html: sidebar + topbar + iframe) ---------- */
+body.shell { display: flex; height: 100vh; overflow: hidden; }
+
+.toggle-input { position: absolute; opacity: 0; pointer-events: none; }
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  background: var(--blue-900);
+  color: var(--white);
+  overflow: hidden;
+  transition: width .25s ease;
+}
+
+.sidebar .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  background: rgba(0, 0, 0, .18);
+  white-space: nowrap;
+}
+.brand img { width: 34px; height: 34px; flex: none; object-fit: contain; }
+.brand strong { display: block; font-size: 1rem; }
+.brand small { color: #a5d8f0; font-size: .78rem; }
+
+.menu { flex: 1; overflow-y: auto; padding: 12px 0; }
+.menu-group { padding: 14px 20px 6px; color: #8fc3de; font-size: .8rem; white-space: nowrap; }
+.menu a {
+  display: block;
+  padding: 11px 20px 11px 17px;
+  color: #d6ebf7;
+  text-decoration: none;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+}
+.menu a.sub { padding-left: 38px; font-size: .92rem; }
+.menu a:hover { background: rgba(255, 255, 255, .08); color: var(--white); }
+.menu a:focus {
+  background: rgba(20, 184, 166, .22);
+  border-left-color: var(--teal-500);
+  color: var(--white);
+  outline: none;
+}
+.menu a:focus-visible { outline: 3px solid var(--teal-500); outline-offset: -3px; }
+
+.sidebar-foot { padding: 14px 20px; font-size: .78rem; color: #8fc3de; white-space: nowrap; }
+
+.shell-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px;
+  background: var(--white);
+  border-bottom: 3px solid var(--teal-500);
+}
+.topbar .title { font-weight: 600; color: var(--blue-900); }
+
+.toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--blue-500);
+  color: var(--white);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .9rem;
+  user-select: none;
+}
+.toggle-btn:hover { background: var(--blue-700); }
+.toggle-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.toggle-input:focus-visible ~ .shell-main .toggle-btn { outline: 3px solid var(--teal-500); outline-offset: 2px; }
+
+.content-frame { flex: 1; width: 100%; border: 0; background: var(--blue-50); }
+
+/* sidebar tertutup (checkbox dicentang) */
+.toggle-input:checked ~ .sidebar { width: 0; }
+
+@media (max-width: 800px) {
+  .sidebar { width: 0; }
+  .toggle-input:checked ~ .sidebar { width: var(--sidebar-w); }
+}
+
+/* 3. HALAMAN KONTEN (dimuat di dalam iframe) ---------------- */
+.page { max-width: 1100px; margin: 0 auto; padding: 26px 24px 48px; }
+.page-head { margin-bottom: 22px; }
+.page-head h1 { font-size: 1.6rem; color: var(--blue-900); }
+.page-head p { margin: 6px 0 0; color: var(--ink-soft); }
+.page-head::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue-500), var(--green-600));
+}
+
+/* 4. BERANDA / PROFIL RS ------------------------------------ */
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 34px;
+  border-radius: 14px;
+  color: var(--white);
+  background: linear-gradient(120deg, var(--blue-700), var(--teal-700));
+}
+.hero h1 { font-size: 2rem; margin-bottom: 10px; }
+.hero p { margin: 0 0 8px; color: #e3f4fb; max-width: 56ch; }
+.hero-info {
+  background: rgba(255, 255, 255, .13);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+.hero-info dl { margin: 0; }
+.hero-info dt { font-size: .82rem; color: #bfe7f5; }
+.hero-info dd { margin: 0 0 12px; font-weight: 600; }
+.hero-info dd:last-child { margin-bottom: 0; }
+
+.section-title { font-size: 1.15rem; color: var(--blue-900); margin: 30px 0 14px; }
+
+.layanan-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.layanan-list .card { border-top: 4px solid var(--teal-500); }
+.layanan-list .card:nth-child(even) { border-top-color: var(--blue-500); }
+.layanan-list h3 { font-size: 1rem; margin-bottom: 4px; }
+.layanan-list p { margin: 0; color: var(--ink-soft); font-size: .92rem; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.two-col h3 { font-size: 1rem; margin-bottom: 8px; color: var(--teal-700); }
+.two-col ul { margin: 0; padding-left: 20px; color: var(--ink); }
+.two-col li + li { margin-top: 4px; }
+.note { margin-top: 24px; font-size: .85rem; color: var(--ink-soft); }
+
+@media (max-width: 760px) {
+  .hero, .two-col { grid-template-columns: 1fr; }
+  .hero { padding: 24px; }
+}
+
+/* 5. KARTU & GRID UMUM -------------------------------------- */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+
+.patient-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  border-left: 5px solid var(--blue-500);
+}
+.patient-info { display: flex; flex-wrap: wrap; gap: 8px 32px; }
+.info-item { display: flex; flex-direction: column; }
+.info-item .label { font-size: .82rem; color: var(--ink-soft); }
+.info-item .value { font-weight: 700; font-size: 1.05rem; }
+.patient-status {
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--green-100);
+  color: var(--green-600);
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+.dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+
+/* 6. INDIKATOR VITAL + IKON MEDIS --------------------------- */
+.vital-card { display: flex; flex-direction: column; justify-content: space-between; }
+.vital-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.vital-head h2 { font-size: .98rem; font-weight: 600; color: var(--ink-soft); }
+
+.medical-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex: none;
+  background: var(--blue-100);
+  color: var(--blue-500);
+}
+.medical-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ic-heart  { background: var(--blue-100);  color: var(--blue-700); }
+.ic-temp   { background: var(--green-100); color: var(--green-600); }
+.ic-bp     { background: var(--blue-100);  color: var(--blue-500); }
+.ic-oxygen { background: #ccfbf1;          color: var(--teal-700); }
+.ic-breath { background: var(--green-100); color: var(--teal-700); }
+.ic-eye    { background: var(--blue-100);  color: var(--blue-900); }
+
+.vital-value { font-size: 2.1rem; font-weight: 700; line-height: 1.1; }
+.vital-unit { font-size: .45em; font-weight: 400; color: var(--ink-soft); }
+.vital-note { margin-top: 12px; font-size: .88rem; color: var(--green-600); font-weight: 600; }
+
+.chart-card { margin-top: 20px; }
+.chart-card h2 { font-size: 1.05rem; margin-bottom: 14px; }
+.bar-chart {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  align-items: end;
+  gap: 12px;
+  height: 170px;
+  padding: 0 10px 26px;
+  border-bottom: 1px solid var(--line);
+  background: repeating-linear-gradient(to top, transparent 0 41px, #eef4f8 41px 42px);
+}
+.bar {
+  position: relative;
+  background: linear-gradient(to top, var(--blue-500), var(--teal-500));
+  border-radius: 5px 5px 0 0;
+}
+.bar::before { content: attr(data-bpm); position: absolute; top: -20px; left: 0; right: 0; text-align: center; font-size: .78rem; font-weight: 600; }
+.bar::after  { content: attr(data-jam); position: absolute; bottom: -24px; left: 0; right: 0; text-align: center; font-size: .78rem; color: var(--ink-soft); }
+
+/* 7. TABEL RIWAYAT & BADGE ---------------------------------- */
+.table-card { margin-top: 20px; padding: 0; overflow: hidden; }
+.table-card .table-head { padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.table-card h2 { font-size: 1.05rem; }
+.table-card p { margin: 2px 0 0; color: var(--ink-soft); font-size: .88rem; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { padding: 12px 20px; text-align: left; white-space: nowrap; }
+thead th { background: var(--blue-50); color: var(--blue-900); font-weight: 600; border-bottom: 2px solid var(--blue-100); }
+tbody tr + tr td { border-top: 1px solid var(--line); }
+tbody tr:hover { background: var(--green-50); }
+
+.badge { display: inline-block; padding: 3px 12px; border-radius: 999px; font-size: .82rem; font-weight: 600; }
+.badge.selesai { background: var(--green-100); color: var(--green-600); }
+.badge.terjadwal { background: var(--blue-100); color: var(--blue-700); }
+.badge.dirawat { background: var(--warn-bg); color: var(--warn-ink); }
+
+/* 8. FORMULIR ----------------------------------------------- */
+.form-card { max-width: 780px; }
+form fieldset {
+  margin: 0 0 22px;
+  padding: 6px 20px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+form legend { padding: 0 10px; font-weight: 700; font-size: 1.05rem; color: var(--teal-700); }
+
+.field { margin-top: 14px; }
+.field > label, .group-label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--blue-900); }
+.field > label.req::after, .group-label.req::after { content: " *"; color: var(--danger); }
+
+input[type="text"], input[type="tel"], input[type="email"], input[type="date"],
+input[type="time"], input[type="number"], select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--white);
+  border: 2px solid var(--line);
+  border-radius: 6px;
+}
+textarea { resize: vertical; }
+input:focus, select:focus, textarea:focus { border-color: var(--blue-500); outline: none; box-shadow: 0 0 0 3px var(--blue-100); }
+input:user-invalid, select:user-invalid, textarea:user-invalid { border-color: var(--danger); background: #fff5f5; }
+input:user-valid, select:user-valid, textarea:user-valid { border-color: var(--green-600); background: var(--green-50); }
+
+.hint { margin-top: 4px; font-size: .84rem; color: var(--ink-soft); }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.choice-row { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.choice-row label { display: inline-flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer; }
+.choice-row input { width: 18px; height: 18px; accent-color: var(--teal-700); }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  padding: 12px 24px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--teal-700);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn:hover { background: #0b5f58; }
+.btn.secondary { background: var(--white); color: var(--blue-700); border: 2px solid var(--blue-500); padding: 10px 22px; }
+.btn.secondary:hover { background: var(--blue-50); }
+
+@media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
+
+@media (prefers-reduced-motion: reduce) { .sidebar { transition: none; } }

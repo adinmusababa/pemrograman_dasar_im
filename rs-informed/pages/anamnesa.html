@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Anamnesa Pasien</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<main class="page form-card">
+
+    <header class="page-head">
+        <h1>Form Anamnesa Pasien</h1>
+        <p>Klinik Pratama Sehat. Kolom bertanda * wajib diisi.</p>
+    </header>
+
+    <form action="#" method="post">
+
+        <fieldset>
+            <legend>Data pribadi pasien</legend>
+
+            <div class="field">
+                <label class="req" for="nama">Nama lengkap</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="field">
+                <label class="req" for="nomor-rekaman">Nomor rekam medis</label>
+                <input type="text" id="nomor-rekaman" name="nomor_rekaman" pattern="RM[0-9]{8}" title="Format: RM diikuti 8 digit angka, contoh RM12345678" required>
+                <div class="hint">Format: RM + 8 digit angka (contoh: RM12345678).</div>
+            </div>
+            <div class="field">
+                <label class="req" for="tanggal-lahir">Tanggal lahir</label>
+                <input type="date" id="tanggal-lahir" name="tanggal_lahir" required>
+            </div>
+            <div class="field">
+                <span class="group-label req">Jenis kelamin</span>
+                <div class="choice-row">
+                    <label><input type="radio" name="jenis_kelamin" value="L" required> Laki-laki</label>
+                    <label><input type="radio" name="jenis_kelamin" value="P" required> Perempuan</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pemeriksaan fisik</legend>
+
+            <div class="field">
+                <label class="req" for="suhu">Suhu tubuh (°C)</label>
+                <input type="number" id="suhu" name="suhu" min="35" max="50" step="0.1" required>
+                <div class="hint">Rentang normal: 35,0 sampai 37,5.</div>
+            </div>
+            <div class="field">
+                <span class="group-label req">Tekanan darah (mmHg)</span>
+                <div class="row-2">
+                    <input type="number" name="sistolik" min="80" max="200" placeholder="Sistolik" aria-label="Tekanan sistolik" required>
+                    <input type="number" name="diastolik" min="50" max="130" placeholder="Diastolik" aria-label="Tekanan diastolik" required>
+                </div>
+            </div>
+            <div class="row-2">
+                <div class="field">
+                    <label class="req" for="nadi">Nadi (kali/menit)</label>
+                    <input type="number" id="nadi" name="nadi" min="40" max="180" required>
+                </div>
+                <div class="field">
+                    <label class="req" for="respirasi">Respirasi (kali/menit)</label>
+                    <input type="number" id="respirasi" name="respirasi" min="12" max="30" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Riwayat dan keluhan</legend>
+
+            <div class="field">
+                <span class="group-label">Riwayat penyakit yang diderita</span>
+                <div class="choice-row">
+                    <label><input type="checkbox" name="riwayat" value="diabetes"> Diabetes</label>
+                    <label><input type="checkbox" name="riwayat" value="hipertensi"> Hipertensi</label>
+                    <label><input type="checkbox" name="riwayat" value="jantung"> Jantung</label>
+                    <label><input type="checkbox" name="riwayat" value="asma"> Asma</label>
+                </div>
+            </div>
+            <div class="field">
+                <label class="req" for="keluhan">Keluhan utama</label>
+                <textarea id="keluhan" name="keluhan" rows="5" placeholder="Ceritakan keluhan pasien di sini" required></textarea>
+            </div>
+            <div class="field">
+                <label for="alergi">Riwayat alergi</label>
+                <input type="text" id="alergi" name="alergi" placeholder="Contoh: obat, makanan, dll.">
+            </div>
+        </fieldset>
+
+        <div class="btn-row">
+            <button type="submit" class="btn">Simpan data pasien</button>
+            <button type="reset" class="btn secondary">Reset form</button>
+        </div>
+    </form>
+</main>
+</body>
+</html>

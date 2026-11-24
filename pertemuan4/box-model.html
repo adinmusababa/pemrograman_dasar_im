@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Box Model</title>
+
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f4f8;
+            margin: 20px;
+        }
+
+        .box{
+            border-color: #e9c46a;
+            border: 3px solid #264653;
+            padding: 15px;
+            margin: 20px;
+            width: 300px;
+            position: relative;
+        }
+
+        .box span{
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            background: #2a9d8f;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+        
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        table, th, td{
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        form{
+            margin-top: 20px;
+            background:#ffff;
+            padding: 15px;
+            border: 2px solid #2a9d8f;
+            border-radius: 8px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>Demo Box Model</h1>
+    <div class="box">
+        <span>Label</span>
+        Ini adalah contoh elemen dengan border, margin dan padding
+    </div>
+    <h2>Contoh Tebel</h2>
+    <table >
+        <tr>
+            <th>Nama</th>
+            <th>Usia</th>
+            <th>Jenis Kelamin</th>
+        </tr>
+        <tr>
+            <td>Andi</td>
+            <td>25</td>
+            <td>Laki-laki</td>
+        </tr>
+        <tr>
+            <td>Budi</td>
+            <td>23</td>
+            <td>Laki-laki</td>
+        </tr>
+    </table>
+
+    <h2>Contoh Form</h2>
+    <form>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+        <button type="submit">Kirim</button>
+    </form>
+</body>
+</html>

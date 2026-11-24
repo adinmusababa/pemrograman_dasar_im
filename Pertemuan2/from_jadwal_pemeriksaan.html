@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Pemeriksaan</title>
+</head>
+<body>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 12px;">
+        <img src="path/ke/logo.png" alt="Logo" style="height: 40px; width: auto;">
+        <h1>From Penjadwalan Pemeriksaan</h1>
+
+    </div>
+    <!-- Form Data Pasien -->
+    <section>
+        <h2>Data Pasien</h2>
+        <form>
+            <label for="ID">ID Pasien:</label>
+            <input type="text" id="ID" name="ID" required><br><br>
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" required><br><br>
+        </form>
+    </section>
+
+    <section>
+        <h2>Jadwal Pemeriksaan</h2>
+        <form>
+            <label for="tanggal">Tanggal Pemeriksaan:</label>
+            <input type="date" id="tanggal" name="tanggal" required><br><br>
+            <label for="waktu">Waktu Pemeriksaan:</label>
+            <input type="time" id="waktu" name="waktu" required><br><br>
+            <label for="dokter">Dokter:</label>
+            <select id="dokter" name="dokter" required>
+                <option value="">-- Pilih Dokter --</option>
+                <option value="dr-smith">Dr. Smith</option>
+                <option value="dr-johnson">Dr. Johnson</option>
+                <option value="dr-williams">Dr. Williams</option>
+            </select><br><br>
+            <label for="poli">Poli:</label>
+            <select id="poli" name="poli" required>
+                <option value="">-- Pilih Poli --</option>
+                <option value="poli-umum">Poli Umum</option>
+                <option value="poli-gigi">Poli Gigi</option>
+                <option value="poli-kandungan">Poli Kandungan</option>
+            </select><br><br>
+            <label for="lokasi">Lokasi Ruangan:</label>
+            <input type="text" id="lokasi" name="lokasi" required><br><br>
+
+        </form>
+
+        <!-- Catatan Tambahan -->
+        <h2>Catatan Tambahan</h2>
+        <label for="catatan">Catatan Tambahan:</label><br>
+        <textarea id="catatan" name="catatan" rows="4" cols="50"></textarea><br><br>
+    </section>
+
+    <!-- Tombol Submit -->
+    <button type="submit">Simpan Jadwal Pemeriksaan</button>
+
+
+</body>
+</html>

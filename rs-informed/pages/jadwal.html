@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Pemeriksaan</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<main class="page form-card">
+
+    <header class="page-head">
+        <h1>Penjadwalan Pemeriksaan</h1>
+        <p>Pilih tanggal, dokter, dan poli untuk pemeriksaan pasien.</p>
+    </header>
+
+    <form action="#" method="post">
+
+        <fieldset>
+            <legend>Data pasien</legend>
+            <div class="row-2">
+                <div class="field">
+                    <label class="req" for="id">ID pasien</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+                <div class="field">
+                    <label class="req" for="nama">Nama lengkap</label>
+                    <input type="text" id="nama" name="nama" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Jadwal pemeriksaan</legend>
+            <div class="row-2">
+                <div class="field">
+                    <label class="req" for="tanggal">Tanggal pemeriksaan</label>
+                    <input type="date" id="tanggal" name="tanggal" required>
+                </div>
+                <div class="field">
+                    <label class="req" for="waktu">Waktu pemeriksaan</label>
+                    <input type="time" id="waktu" name="waktu" required>
+                </div>
+            </div>
+            <div class="row-2">
+                <div class="field">
+                    <label class="req" for="dokter">Dokter</label>
+                    <select id="dokter" name="dokter" required>
+                        <option value="">Pilih dokter</option>
+                        <option value="dr-smith">Dr. Smith</option>
+                        <option value="dr-johnson">Dr. Johnson</option>
+                        <option value="dr-williams">Dr. Williams</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label class="req" for="poli">Poli</label>
+                    <select id="poli" name="poli" required>
+                        <option value="">Pilih poli</option>
+                        <option value="poli-umum">Poli Umum</option>
+                        <option value="poli-gigi">Poli Gigi</option>
+                        <option value="poli-kandungan">Poli Kandungan</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <label class="req" for="lokasi">Lokasi ruangan</label>
+                <input type="text" id="lokasi" name="lokasi" required>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Catatan tambahan</legend>
+            <div class="field">
+                <label for="catatan">Catatan</label>
+                <textarea id="catatan" name="catatan" rows="4"></textarea>
+            </div>
+        </fieldset>
+
+        <div class="btn-row">
+            <button type="submit" class="btn">Simpan jadwal pemeriksaan</button>
+            <button type="reset" class="btn secondary">Kosongkan form</button>
+        </div>
+    </form>
+</main>
+</body>
+</html>

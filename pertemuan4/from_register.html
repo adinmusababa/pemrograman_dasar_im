@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Electronic Medical Records</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f0f4f8;
+            margin:0;
+            padding:0;
+        }
+
+        header{
+            background-color: #2a9d8f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1{
+            margin: 0;
+        }
+        main{
+            max-width: 700px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        section{
+            margin-bottom: 25px;
+
+        }
+
+        h2{
+            color: 264653;
+            border-bottom: 2px solid #e9c46a;
+            padding-bottom: 5px;
+        }
+        label{
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select, textarea{
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        textarea{
+            resize: vertical;
+        }
+
+        button{
+            background-color: #e76f51;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover{
+            background-color: #d65a3f;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1 style="color: #d65a3f;">Form Pendaftaran Pasien Baru</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Data Identitas</h2>
+            <form id="form-identitas">
+                <!-- Input untuk Nama Lengkap -->
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" required><br><br>
+                
+                <!-- Input untuk NIK -->
+                <label for="nik">NIK:</label>
+                <input type="text" id="nik" name="nik" maxlength="16" required><br><br>
+
+                <!-- Input untuk Tanggal Lahir -->
+                <label for="tgl_lahir">Tanggal Lahir:</label>
+                <input type="date" id="tgl_lahir" name="tgl_lahir" required><br><br>
+
+                <!-- Input untuk Jenis Kelamin -->
+                <label for="jk">Jenis Kelamin:</label>
+                <select id="jk" name="jk" required>
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="laki-laki">Laki-laki</option>
+                    <option value="perempuan">Perempuan</option>
+                </select><br><br>
+
+                <!-- Input golongan darah -->
+                <label for="gol_darah">Golongan Darah:</label>
+                <select id="gol_darah" name="gol_darah" required>
+                    <option value="">Pilih Golongan Darah</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="AB">AB</option>
+                    <option value="O">O</option>
+                </select><br><br>
+            </form>
+        </section>
+
+        <section>
+            <h2>Data Kontak</h2>
+            <form id="form-kontak">
+                <!-- Input alamat -->
+                <label for="alamat">Alamat:</label>
+                <textarea id="alamat" name="alamat" rows="3"></textarea><br><br>
+
+                <!-- Input nomor telepon -->
+                <label for="telepon">Nomor Telepon:</label>
+                <input type="tel" id="telepon" name="telepon" placeholder="08xxxxx"><br><br>
+
+                <!-- Input email -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="contoh@email.com"><br><br>
+            </form>
+        </section>
+
+        <section>
+            <h2>Data Medis</h2>
+            <form>
+                <!-- Riwayat Penyakit -->
+                <label for="riwayat">Riwayat Penyakit:</label><br>
+                <textarea id="riwayat" name="riwayat" rows="3"></textarea><br><br>
+
+                <!-- Alergi -->
+                <label for="alergi">Alergi:</label><br>
+                <textarea id="alergi" name="alergi" rows="3"></textarea><br><br>
+                
+                <!-- Dokter -->
+                <label for="dokter">Dokter Penanggung Jawab:</label>
+                <input type="text" id="dokter" name="dokter"><br><br>
+            </form>
+        </section>
+
+        <section>
+            <!-- Tombol Submit -->
+            <button type="submit">Daftar Pasien</button>
+
+        </section>
+    </main>
+</body>
+</html>
